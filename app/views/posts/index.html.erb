@@ -4,6 +4,18 @@
 <li><%= post.title %></br>
 <%= post.post %></li>
 
+
+	<div id="comments">
+		<%= post.comments.count %> comments
+		<div>
+			<% post.comments.each do |comment| %>
+				<%= comment.body %><br>
+				<%= comment.name %>
+		</div>
+		
+		<% end %>
+	</div>
+
 </ul>
 <%= render partial: 'comment/new', locals: { post: post, comment: @comment } %>
 
