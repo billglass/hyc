@@ -1,9 +1,11 @@
 
-
 <% @posts.each do |post| %>
 <ul>
 <li><%= post.title %></br>
 <%= post.post %></li>
+
 </ul>
+<%= render partial: 'comment/new', locals: { post: post, comment: @comment } %>
+
 <% end %>
 

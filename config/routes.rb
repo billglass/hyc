@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   
+  
+
   devise_for :admins
   root 'pages#home'
-  resources :posts, except: [:index, :new]
+  resources :posts, except: [:index, :new] do
+    resources :comments
+  end 
+
   get '/about', to: 'pages#about'
   get '/gallery', to: 'pages#gallery'
   get '/blog', to:  'posts#index'
